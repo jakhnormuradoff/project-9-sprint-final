@@ -8,7 +8,7 @@ import (
 )
 
 // Пишите тесты в этом файле
-func TestgenerateRandomElements(t *testing.T) {
+func TestGenerateRandomElements(t *testing.T) {
 	// ваш код здесь
 	var size = []int{-1, 0, 100}
 
@@ -21,7 +21,7 @@ func TestgenerateRandomElements(t *testing.T) {
 	}
 }
 
-func Testmaximum(t *testing.T) {
+func TestMaximum(t *testing.T) {
 	var data = []int{-1, 0, 100}
 	require.NotEqual(t, 0, len(data))
 
