@@ -22,7 +22,7 @@ func generateRandomElements(size int) []int {
 	randRange := rand.New(randSource)
 	slc := make([]int, size)
 	for i := range size {
-		slc[i] = randRange.Intn(SIZE)
+		slc[i] = randRange.Intn(1000000)
 	}
 	return slc
 }
@@ -85,18 +85,14 @@ func main() {
 	// ваш код здесь
 	start := time.Now()
 	max := maximum(slc)
-	timer := time.NewTimer(0 * time.Second)
-	end := <- timer.C
-	elapsed := end.Sub(start).Seconds()
-	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %f ms\n", max, elapsed)
+	elapsed := 	int64(time.Since(start).Milliseconds())
+	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d ms\n", max, elapsed)
 
 	fmt.Printf("Ищем максимальное значение в %d потоков\n", CHUNKS)
 	// ваш код здесь
 	start = time.Now()
 	max = maxChunks(slc)
-	timer = time.NewTimer(0 * time.Second)
-	end = <- timer.C
-	elapsed = end.Sub(start).Seconds()
+	elapsed = int64((time.Since(start).Milliseconds()))
 
-	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %f ms\n", max, elapsed)
+	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d ms\n", max, elapsed)
 }

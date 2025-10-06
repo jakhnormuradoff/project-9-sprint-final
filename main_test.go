@@ -3,30 +3,26 @@ package main
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
 // Пишите тесты в этом файле
 func TestGenerateRandomElements(t *testing.T) {
 	// ваш код здесь
-	var size = []int{-1, 0, 100}
+	slc := generateRandomElements(100)
+	require.Equal(t, 100, len(slc))
 
-	for _, v := range size {
-		result := generateRandomElements(v)
-		if v <= 0 {
-			assert.Equal(t, result, []int{})
-		}
-		assert.Equal(t, len(result), v)
-	}
+	slc = generateRandomElements(0)
+	require.Empty(t, slc)
 }
 
 func TestMaximum(t *testing.T) {
-	var data = []int{-1, 0, 100}
-	require.NotEqual(t, 0, len(data))
+	maxNum := maximum([]int{})
+	require.Equal(t, 0, maxNum)
 
-	maxNum := maximum(data)
-	assert.Equal(t, 100, maxNum)
+	maxNum = maximum([]int{1})
+	require.Equal(t, 1, maxNum)
+
+	maxNum = maximum([]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+	require.Equal(t, 10, maxNum)
 }
-
-
