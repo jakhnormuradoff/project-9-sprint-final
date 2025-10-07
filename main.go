@@ -22,7 +22,7 @@ func generateRandomElements(size int) []int {
 	randRange := rand.New(randSource)
 	slc := make([]int, size)
 	for i := range size {
-		slc[i] = randRange.Intn(1000000)
+		slc[i] = randRange.Int()
 	}
 	return slc
 }
